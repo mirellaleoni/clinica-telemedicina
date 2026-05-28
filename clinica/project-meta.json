@@ -1,0 +1,11 @@
+{
+  "curso": "Ciência da Computação",
+  "disciplina": "Projeto de programação",
+  "tema_escolhido": "5",
+  "linguagem": "Java",
+  "gerenciador_dependencias": "Gradle",
+  "integrantes": [
+    {"nome": "Mirella Leoni", "github_mirellaleoni": "user1"},
+    {"nome": "Nome Aluno 2", "github_username": "user2"}
+  ]
+}
