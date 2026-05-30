@@ -1,4 +1,4 @@
-# Sistema de Agendamento e Telemedicina para Clínicas Populares
+``# Sistema de Agendamento e Telemedicina para Clínicas Populares
 
 ## O Problema
 
@@ -24,7 +24,7 @@ Agendar consultas médicas presenciais ou online, gerenciar salas e links de vid
 | Backend | Java + Spring Boot 3.5.14 |
 | Banco de dados | PostgreSQL 16 |
 | Migrations | Flyway |
-| Containers | Podman |
+| Containers | Docker |
 | Visualização do banco | DBeaver |
 | Autenticação | JWT |
 | Build | Gradle |
