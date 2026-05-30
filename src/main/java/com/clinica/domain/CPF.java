@@ -8,7 +8,7 @@ public class CPF {
             throw new IllegalArgumentException("O CPF não pode ser nulo ou vazio");
         }
 
-        String cpfLimpo = numero.replaceALL("[^0-9]", "");
+        String cpfLimpo = numero.replaceAll("[^0-9]", "");
 
         if(cpfLimpo.length() != 11) {
             throw new IllegalArgumentException("O CPF deve conter exatamente 11 digitos.");
