@@ -3,8 +3,9 @@ package com.clinica.domain;
 import java.util.UUID;
 
 public class Paciente {
+    private final UUID id;
     private String nome;
-    private CPF cpf;
+    private final CPF cpf;
     private Email email;
 
     public Paciente(String nome, CPF cpf, Email email) {
@@ -44,7 +45,7 @@ public class Paciente {
     }
 
     @Override
-    public String equals(Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Paciente paciente = (Paciente) o;
