@@ -25,7 +25,7 @@ public class CPF {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CPF cpf = (cpf) o;
+        CPF cpf = (CPF) o;
         return numero.equals(cpf.numero);
     }
 
