@@ -11,7 +11,7 @@ public class CPF {
         String cpfLimpo = numero.replaceALL("[^0-9]", "");
 
         if(cpfLimpo.length() != 11) {
-            throw new IllegalArgumentException("O CPF deve conter exatamente 11 digitos.")
+            throw new IllegalArgumentException("O CPF deve conter exatamente 11 digitos.");
         }
 
         this.numero = cpfLimpo;
