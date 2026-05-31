@@ -243,11 +243,11 @@ GET  /relatorios/financeiro  → relatório financeiro
 
 ### Fase 1 — Fundação
 - [x] Projeto Spring Boot criado
-- [ ] Podman + PostgreSQL
-- [ ] Flyway funcionando
-- [ ] `project-meta.json` na raiz
-- [ ] `.github/workflows/ci.yml` configurado
-- [ ] Estrutura de pastas criada
+- [x] Docker + PostgreSQL
+- [x] Flyway funcionando
+- [x] `project-meta.json` na raiz
+- [x] `.github/workflows/ci.yml` configurado
+- [x] Estrutura de pastas criada
 
 ### Fase 2 — Domain (TDD)
 - [ ] Value Object `CPF` + teste
