@@ -251,10 +251,10 @@ GET  /relatorios/financeiro  → relatório financeiro
 
 ### Fase 2 — Domain (TDD)
 - [ ] Value Object `CPF` + teste
-- [ ] Value Object `Email` + teste
-- [ ] Value Object `CRM` + teste
+- [x] Value Object `Email` + teste
+- [x] Value Object `CRM` + teste
 - [ ] Value Object `HorarioDisponivel` + teste
-- [ ] Entidade `Paciente` + teste
+- [x] Entidade `Paciente` + teste
 - [ ] Entidade `Medico` + teste
 - [ ] Aggregate Root `Agendamento` + teste
 - [ ] Aggregate Root `Consulta` + teste
@@ -277,6 +277,6 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] Configuração JWT
 
 ### Fase 6 — Finalização
-- [ ] CI/CD passando no GitHub (build verde)
-- [ ] Commits equilibrados entre os dois integrantes
+- [x] CI/CD passando no GitHub (build verde)
+- [ ] Commits equilibrados entre os tres integrantes
 - [ ] README atualizado
