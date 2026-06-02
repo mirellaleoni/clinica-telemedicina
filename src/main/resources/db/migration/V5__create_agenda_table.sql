@@ -9,3 +9,4 @@ CREATE TABLE agenda (
     CONSTRAINT fk_agenda_paciente FOREIGN KEY (paciente_id) REFERENCES pacientes(id),
     CONSTRAINT fk_agenda_medico FOREIGN KEY (medico_id) REFERENCES medicos(id)
 );
+
