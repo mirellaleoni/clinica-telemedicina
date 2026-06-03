@@ -33,10 +33,23 @@ public class Agendamento {
     private statusAgendamento status;
 
     public Agendamento(UUID pacienteId, UUID medicoId, LocalDateTime dataHora, String tipo) {
+        if (pacienteId == null) {
+            throw new IllegalArgumentException("O paciente do agendamento é obrigatório.");
+        }
+        if (medicoId == null) {
+            throw new IllegalArgumentException("O médico do agendamento é obrigatório.");
+        }
+        if (dataHora == null) {
+            throw new IllegalArgumentException("A data e hora do agendamento são obrigatórias.");
+        }
+        if (tipo == null || tipo.trim().isEmpty()) {
+            throw new IllegalArgumentException("O tipo do agendamento é obrigatório.");
+        }
+
         this.pacienteId = pacienteId;
         this.medicoId = medicoId;
         this.dataHora = dataHora;
-        this.tipo = tipo;
+        this.tipo = tipo.trim();
         this.status = statusAgendamento.CRIADO;
     }
 

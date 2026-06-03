@@ -250,13 +250,13 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Estrutura de pastas criada
 
 ### Fase 2 — Domain (TDD)
-- [ ] Value Object `CPF` + teste
+- [x] Value Object `CPF` + teste
 - [x] Value Object `Email` + teste
 - [x] Value Object `CRM` + teste
 - [ ] Value Object `HorarioDisponivel` + teste
 - [x] Entidade `Paciente` + teste
-- [ ] Entidade `Medico` + teste
-- [ ] Aggregate Root `Agendamento` + teste
+- [x] Entidade `Medico` + teste
+- [x] Aggregate Root `Agendamento` + teste
 - [ ] Aggregate Root `Consulta` + teste
 - [ ] Entidade `Prontuario` + teste
 
