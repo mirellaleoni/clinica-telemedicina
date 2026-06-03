@@ -272,7 +272,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] `AuthController`
 
 ### Fase 5 — Infrastructure
-- [ ] Migrations Flyway completas
+- [x] Migrations Flyway completas
 - [ ] Repositories JPA
 - [ ] Configuração JWT
 
