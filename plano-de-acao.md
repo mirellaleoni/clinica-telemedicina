@@ -253,7 +253,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] Value Object `CPF` + teste
 - [x] Value Object `Email` + teste
 - [x] Value Object `CRM` + teste
-- [ ] Value Object `HorarioDisponivel` + teste
+- [x] Value Object `HorarioDisponivel` + teste
 - [x] Entidade `Paciente` + teste
 - [ ] Entidade `Medico` + teste
 - [ ] Aggregate Root `Agendamento` + teste
