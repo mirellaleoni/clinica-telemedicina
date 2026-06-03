@@ -239,6 +239,112 @@ GET  /relatorios/financeiro  → relatório financeiro
 
 ---
 
+## Plano de CRUD
+
+> O CRUD deve ser implementado em camadas: `presentation/` recebe HTTP, `application/` executa o caso de uso, `infrastructure/` acessa o banco e `domain/` mantém as regras.
+
+### CRUD de Pacientes
+- [ ] Criar paciente
+  - `POST /pacientes`
+  - Use case: `CadastrarPacienteUseCase`
+  - Repository: `PacienteRepository.save`
+- [ ] Listar pacientes
+  - `GET /pacientes`
+  - Use case: `ListarPacientesUseCase`
+  - Repository: `PacienteRepository.findAll`
+- [ ] Buscar paciente por ID
+  - `GET /pacientes/{id}`
+  - Use case: `BuscarPacienteUseCase`
+  - Repository: `PacienteRepository.findById`
+- [ ] Buscar paciente por nome
+  - `GET /pacientes/search?q=`
+  - Use case: `BuscarPacientesPorNomeUseCase`
+  - Repository: `PacienteRepository.findByNomeContainingIgnoreCase`
+- [ ] Atualizar paciente
+  - `PUT /pacientes/{id}`
+  - Use case: `AtualizarPacienteUseCase`
+  - Regras: usar métodos da entidade, como `alterarNome` e `alterarEmail`
+- [ ] Remover paciente
+  - `DELETE /pacientes/{id}`
+  - Use case: `RemoverPacienteUseCase`
+  - Repository: `PacienteRepository.deleteById`
+
+### CRUD de Médicos
+- [ ] Criar médico
+  - `POST /medicos`
+  - Use case: `CadastrarMedicoUseCase`
+- [ ] Listar médicos
+  - `GET /medicos`
+  - Use case: `ListarMedicosUseCase`
+- [ ] Buscar médico por ID
+  - `GET /medicos/{id}`
+  - Use case: `BuscarMedicoUseCase`
+- [ ] Atualizar médico
+  - `PUT /medicos/{id}`
+  - Use case: `AtualizarMedicoUseCase`
+- [ ] Desativar ou remover médico
+  - `DELETE /medicos/{id}`
+  - Use case: `DesativarMedicoUseCase`
+
+### CRUD de Agendamentos
+- [ ] Criar agendamento
+  - `POST /agendamentos`
+  - Use case: `CriarAgendamentoUseCase`
+  - Regra: não permitir conflito de horário para o mesmo médico
+- [ ] Listar agendamentos
+  - `GET /agendamentos`
+  - Use case: `ListarAgendamentosUseCase`
+- [ ] Buscar agendamento por ID
+  - `GET /agendamentos/{id}`
+  - Use case: `BuscarAgendamentoUseCase`
+- [ ] Atualizar ou remarcar agendamento
+  - `PUT /agendamentos/{id}`
+  - Use case: `RemarcarAgendamentoUseCase`
+  - Regra: validar novo horário
+- [ ] Cancelar agendamento
+  - `DELETE /agendamentos/{id}`
+  - Use case: `CancelarAgendamentoUseCase`
+  - Regra: alterar status para `CANCELADO`, não apagar histórico
+
+### CRUD de Atendimento
+- [ ] Iniciar consulta
+  - `POST /consultas/{id}/iniciar`
+  - Use case: `IniciarConsultaUseCase`
+- [ ] Buscar consulta
+  - `GET /consultas/{id}`
+  - Use case: `BuscarConsultaUseCase`
+- [ ] Finalizar consulta
+  - `PUT /consultas/{id}/finalizar`
+  - Use case: `FinalizarConsultaUseCase`
+- [ ] Criar prontuário
+  - `POST /prontuarios`
+  - Use case: `CriarProntuarioUseCase`
+- [ ] Buscar prontuário
+  - `GET /prontuarios/{id}`
+  - Use case: `BuscarProntuarioUseCase`
+- [ ] Emitir receita
+  - `POST /receitas`
+  - Use case: `EmitirReceitaUseCase`
+- [ ] Buscar receita
+  - `GET /receitas/{id}`
+  - Use case: `BuscarReceitaUseCase`
+
+### CRUD de Faturamento
+- [ ] Registrar pagamento
+  - `POST /pagamentos`
+  - Use case: `RegistrarPagamentoUseCase`
+- [ ] Buscar pagamento
+  - `GET /pagamentos/{id}`
+  - Use case: `BuscarPagamentoUseCase`
+- [ ] Listar faturas do paciente
+  - `GET /faturas/{pacienteId}`
+  - Use case: `ListarFaturasDoPacienteUseCase`
+- [ ] Gerar relatório financeiro
+  - `GET /relatorios/financeiro`
+  - Use case: `GerarRelatorioFinanceiroUseCase`
+
+---
+
 ## Plano de Ação por Fases
 
 ### Fase 1 — Fundação
@@ -250,30 +356,59 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Estrutura de pastas criada
 
 ### Fase 2 — Domain (TDD)
-- [ ] Value Object `CPF` + teste
+- [x] Value Object `CPF` + teste
 - [x] Value Object `Email` + teste
 - [x] Value Object `CRM` + teste
 - [ ] Value Object `HorarioDisponivel` + teste
 - [x] Entidade `Paciente` + teste
-- [ ] Entidade `Medico` + teste
-- [ ] Aggregate Root `Agendamento` + teste
+- [x] Entidade `Medico` + teste
+- [x] Aggregate Root `Agendamento` + teste
 - [ ] Aggregate Root `Consulta` + teste
 - [ ] Entidade `Prontuario` + teste
 
 ### Fase 3 — Application
 - [ ] `CadastrarPacienteUseCase`
+- [ ] `ListarPacientesUseCase`
+- [ ] `BuscarPacienteUseCase`
+- [ ] `AtualizarPacienteUseCase`
+- [ ] `RemoverPacienteUseCase`
+- [ ] `CadastrarMedicoUseCase`
+- [ ] `ListarMedicosUseCase`
+- [ ] `BuscarMedicoUseCase`
+- [ ] `AtualizarMedicoUseCase`
+- [ ] `DesativarMedicoUseCase`
 - [ ] `CriarAgendamentoUseCase`
+- [ ] `ListarAgendamentosUseCase`
+- [ ] `BuscarAgendamentoUseCase`
+- [ ] `RemarcarAgendamentoUseCase`
+- [ ] `CancelarAgendamentoUseCase`
 - [ ] `IniciarConsultaUseCase`
+- [ ] `FinalizarConsultaUseCase`
+- [ ] `CriarProntuarioUseCase`
+- [ ] `EmitirReceitaUseCase`
+- [ ] `RegistrarPagamentoUseCase`
 
 ### Fase 4 — Presentation (bônus +10pts)
 - [ ] `PacienteController`
+- [ ] `MedicoController`
 - [ ] `AgendamentoController`
 - [ ] `ConsultaController`
+- [ ] `ProntuarioController`
+- [ ] `ReceitaController`
+- [ ] `PagamentoController`
+- [ ] `RelatorioFinanceiroController`
 - [ ] `AuthController`
 
 ### Fase 5 — Infrastructure
 - [x] Migrations Flyway completas
-- [ ] Repositories JPA
+- [ ] `PacienteRepository`
+- [ ] `MedicoRepository`
+- [ ] `AgendamentoRepository`
+- [ ] `ConsultaRepository`
+- [ ] `ProntuarioRepository`
+- [ ] `ReceitaRepository`
+- [ ] `PagamentoRepository`
+- [ ] `FaturaRepository`
 - [ ] Configuração JWT
 
 ### Fase 6 — Finalização
