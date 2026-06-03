@@ -30,7 +30,7 @@ public class agendamentoConcluido {
     private Long usuarioConclusaoId;
     private LocalDateTime dataConclusao;
 
-    public void AgendamentoConcluido(Agendamento agendamento, Long usuarioConclusaoId) {
+    public agendamentoConcluido(Agendamento agendamento, Long usuarioConclusaoId) {
         this.agendamento = agendamento;
         this.usuarioConclusaoId = usuarioConclusaoId;
         this.dataConclusao = LocalDateTime.now();

@@ -6,5 +6,5 @@ CREATE TABLE pagamentos (
     status VARCHAR(30) NOT NULL,
     CONSTRAINT fk_pagamentos_agendamento
         FOREIGN KEY (agendamento_id)
-        REFERENCES agendamentos(id)
+        REFERENCES agenda(id)
 );

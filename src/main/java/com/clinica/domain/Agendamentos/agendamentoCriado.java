@@ -29,7 +29,7 @@ public class agendamentoCriado {
 
     private LocalDateTime dataCriacao;
 
-    public void AgendamentoCriado(Agendamento agendamento) {
+    public agendamentoCriado(Agendamento agendamento) {
         this.agendamento = agendamento;
         this.dataCriacao = LocalDateTime.now();
     }

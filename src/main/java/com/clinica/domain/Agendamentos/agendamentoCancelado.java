@@ -31,7 +31,7 @@ public class agendamentoCancelado {
     private Long usuarioCancelamentoId;
     private LocalDateTime dataCancelamento;
 
-    public void AgendamentoCancelado(Agendamento agendamento, String motivo, Long usuarioCancelamentoId) {
+    public agendamentoCancelado(Agendamento agendamento, String motivo, Long usuarioCancelamentoId) {
         this.agendamento = agendamento;
         this.motivo = motivo;
         this.usuarioCancelamentoId = usuarioCancelamentoId;

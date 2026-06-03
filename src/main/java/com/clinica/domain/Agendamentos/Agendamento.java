@@ -1,32 +1,43 @@
 package com.clinica.domain.Agendamentos;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "agenda")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-
-
 public class Agendamento {
-    
 
-    private Long id;
-    private Long pacienteId;
-    private Long medicoId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+    private UUID pacienteId;
+    private UUID medicoId;
     private LocalDateTime dataHora;
-    private String motivo;
+    private String tipo;
+
+    @Enumerated(EnumType.STRING)
     private statusAgendamento status;
 
-    public Agendamento(Long pacienteId, Long medicoId, LocalDateTime dataHora, String motivo) {
+    public Agendamento(UUID pacienteId, UUID medicoId, LocalDateTime dataHora, String tipo) {
         this.pacienteId = pacienteId;
         this.medicoId = medicoId;
         this.dataHora = dataHora;
-        this.motivo = motivo;
+        this.tipo = tipo;
+        this.status = statusAgendamento.CRIADO;
     }
 
 }
