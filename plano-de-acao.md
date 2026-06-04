@@ -367,7 +367,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Entidade `Prontuario` + teste
 
 ### Fase 3 — Application
-- [ ] `CadastrarPacienteUseCase`
+- [x] `CadastrarPacienteUseCase`
 - [ ] `ListarPacientesUseCase`
 - [ ] `BuscarPacienteUseCase`
 - [ ] `AtualizarPacienteUseCase`
@@ -389,7 +389,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] `RegistrarPagamentoUseCase`
 
 ### Fase 4 — Presentation (bônus +10pts)
-- [ ] `PacienteController`
+- [x] `PacienteController`
 - [ ] `MedicoController`
 - [ ] `AgendamentoController`
 - [ ] `ConsultaController`
