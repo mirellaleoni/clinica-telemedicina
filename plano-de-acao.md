@@ -248,7 +248,7 @@ GET  /relatorios/financeiro  → relatório financeiro
   - `POST /pacientes`
   - Use case: `CadastrarPacienteUseCase`
   - Repository: `PacienteRepository.save`
-- [ ] Listar pacientes
+- [x] Listar pacientes
   - `GET /pacientes`
   - Use case: `ListarPacientesUseCase`
   - Repository: `PacienteRepository.findAll`
@@ -368,7 +368,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 
 ### Fase 3 — Application
 - [x] `CadastrarPacienteUseCase`
-- [ ] `ListarPacientesUseCase`
+- [x] `ListarPacientesUseCase`
 - [ ] `BuscarPacienteUseCase`
 - [ ] `AtualizarPacienteUseCase`
 - [ ] `RemoverPacienteUseCase`

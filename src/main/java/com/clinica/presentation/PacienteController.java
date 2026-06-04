@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -24,11 +25,15 @@ public class PacienteController {
 
     @PostMapping
     public ResponseEntity<PacienteEntity> cadastrar(@RequestBody CadastrarPacienteRequest request) {
+
+        LocalDate dataNascimento = LocalDate.parse(request.dataNascimento());
         
         PacienteEntity pacienteSalvo = cadastrarPacienteUseCase.executar(
                 request.nome(),
                 request.cpf(),
-                request.email()
+                request.email(),
+                dataNascimento,
+                request.telefone()
         );
 
         return ResponseEntity.status(HttpStatus.CREATED).body(pacienteSalvo);
@@ -41,5 +46,5 @@ public class PacienteController {
         return ResponseEntity.ok(pacientes);
     }
 
-    public record CadastrarPacienteRequest(String nome, String cpf, String email) {}
+    public record CadastrarPacienteRequest(String nome, String cpf, String email, String dataNascimento, String telefone) {}
 }

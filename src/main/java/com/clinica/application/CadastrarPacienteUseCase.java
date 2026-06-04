@@ -7,6 +7,7 @@ import com.clinica.infrastructure.PacienteEntity;
 import com.clinica.infrastructure.PacienteRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Service
@@ -18,7 +19,7 @@ public class CadastrarPacienteUseCase {
         this.repository = repository;
     }
 
-    public PacienteEntity executar(String nome, String cpfTexto, String emailTexto) {
+    public PacienteEntity executar(String nome, String cpfTexto, String emailTexto, LocalDate dataNascimento, String telefone) {
         
         CPF cpf = new CPF(cpfTexto);
         Email email = new Email(emailTexto);
@@ -28,8 +29,8 @@ public class CadastrarPacienteUseCase {
         PacienteEntity entity = new PacienteEntity(
                 paciente.getId(),
                 paciente.getNome(),
-                null,
-                null,
+                dataNascimento,
+                telefone,
                 paciente.getCpf().getNumero(),
                 LocalDateTime.now()
         );
