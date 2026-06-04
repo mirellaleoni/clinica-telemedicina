@@ -244,7 +244,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 > O CRUD deve ser implementado em camadas: `presentation/` recebe HTTP, `application/` executa o caso de uso, `infrastructure/` acessa o banco e `domain/` mantém as regras.
 
 ### CRUD de Pacientes
-- [ ] Criar paciente
+- [x] Criar paciente
   - `POST /pacientes`
   - Use case: `CadastrarPacienteUseCase`
   - Repository: `PacienteRepository.save`
