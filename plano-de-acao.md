@@ -11,7 +11,7 @@ Agendar consultas médicas presenciais ou online, gerenciar salas e links de vid
 | Nome | GitHub |
 |---|---|
 | Mirella Leoni | @mirellaleoni |
-| Nome Aluno 2 | @user2 |
+| Kauã Xavier | @Kaua032 |
 
 > Lembrete: todos os integrantes precisam fazer commits. A IA cruza o `project-meta.json` com o histórico do Git.
 
