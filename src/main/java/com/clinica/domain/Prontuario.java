@@ -18,8 +18,8 @@ public class Prontuario {
         if (medicoId == null) {
             throw new IllegalArgumentException("Médico ID não pode ser nulo");
         }
-        if (descricao == null) {
-            throw new IllegalArgumentException("Descrição não pode ser nula");
+        if (descricao == null || descricao.trim().isEmpty()) {
+            throw new IllegalArgumentException("A descrição do prontuário é obrigatória.");
         }
 
         this.id = UUID.randomUUID();
