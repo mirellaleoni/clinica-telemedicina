@@ -40,4 +40,4 @@ public class MedicoEntity {
     public String getCpf() { return cpf; }
     public String getCrm() { return crm; }
     public String getEmail() { return email; }
-}
+}  
