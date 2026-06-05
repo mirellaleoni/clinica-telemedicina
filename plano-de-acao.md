@@ -363,7 +363,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Entidade `Paciente` + teste
 - [x] Entidade `Medico` + teste
 - [x] Aggregate Root `Agendamento` + teste
-- [ ] Aggregate Root `Consulta` + teste
+- [x] Aggregate Root `Consulta` + teste
 - [x] Entidade `Prontuario` + teste
 
 ### Fase 3 — Application
