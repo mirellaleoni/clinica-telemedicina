@@ -260,11 +260,11 @@ GET  /relatorios/financeiro  → relatório financeiro
   - `GET /pacientes/search?q=`
   - Use case: `BuscarPacientesPorNomeUseCase`
   - Repository: `PacienteRepository.findByNomeContainingIgnoreCase`
-- [ ] Atualizar paciente
+- [x] Atualizar paciente
   - `PUT /pacientes/{id}`
   - Use case: `AtualizarPacienteUseCase`
   - Regras: usar métodos da entidade, como `alterarNome` e `alterarEmail`
-- [ ] Remover paciente
+- [x] Remover paciente
   - `DELETE /pacientes/{id}`
   - Use case: `RemoverPacienteUseCase`
   - Repository: `PacienteRepository.deleteById`
@@ -370,8 +370,8 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `CadastrarPacienteUseCase`
 - [x] `ListarPacientesUseCase`
 - [x] `BuscarPacienteUseCase`
-- [ ] `AtualizarPacienteUseCase`
-- [ ] `RemoverPacienteUseCase`
+- [x] `AtualizarPacienteUseCase`
+- [x] `RemoverPacienteUseCase`
 - [ ] `CadastrarMedicoUseCase`
 - [ ] `ListarMedicosUseCase`
 - [ ] `BuscarMedicoUseCase`
