@@ -15,6 +15,9 @@ public class RemoverPacienteUseCase {
     }
 
     public void executar(UUID id) {
+        if (id == null) {
+            throw new IllegalArgumentException("ID do paciente não pode ser nulo para remoção.");
+        }
         if (!repository.existsById(id)) {
             throw new RuntimeException("Paciente não encontrado para remoção.");
         }

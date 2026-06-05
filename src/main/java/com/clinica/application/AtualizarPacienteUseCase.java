@@ -18,6 +18,9 @@ public class AtualizarPacienteUseCase {
     }
 
     public PacienteEntity executar(UUID id, String novoNome, String novoTelefone) {
+        if (id == null) {
+            throw new IllegalArgumentException("ID do paciente não pode ser nulo para atualização.");
+        }
         PacienteEntity entity = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Paciente não encontrado para atualização."));
 

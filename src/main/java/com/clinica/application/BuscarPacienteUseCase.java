@@ -17,6 +17,9 @@ public class BuscarPacienteUseCase {
     }
 
     public Optional<PacienteEntity> executar(UUID id) {
+        if (id == null) {
+            throw new IllegalArgumentException("ID do paciente não pode ser nulo para busca.");
+        }
         return repository.findById(id);
     }
 }
