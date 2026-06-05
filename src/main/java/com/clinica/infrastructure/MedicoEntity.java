@@ -40,4 +40,7 @@ public class MedicoEntity {
     public String getCpf() { return cpf; }
     public String getCrm() { return crm; }
     public String getEmail() { return email; }
+
+    public void setNome(String nome) { this.nome = nome; }
+    public void setEmail(String email) { this.email = email; }
 }  
