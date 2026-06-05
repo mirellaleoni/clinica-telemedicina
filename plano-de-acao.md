@@ -402,7 +402,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 ### Fase 5 — Infrastructure
 - [x] Migrations Flyway completas
 - [x] `PacienteRepository`
-- [ ] `MedicoRepository`
+- [x] `MedicoRepository`
 - [ ] `AgendamentoRepository`
 - [ ] `ConsultaRepository`
 - [ ] `ProntuarioRepository`
