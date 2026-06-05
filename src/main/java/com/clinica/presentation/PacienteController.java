@@ -1,10 +1,6 @@
 package com.clinica.presentation;
 
-import com.clinica.application.BuscarPacienteUseCase;
-import com.clinica.application.BuscarPacientesPorNomeUseCase;
-import com.clinica.application.CadastrarPacienteUseCase;
-import com.clinica.application.ListarPacientesUseCase;
-
+import com.clinica.application.*;
 import com.clinica.infrastructure.PacienteEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,17 +18,24 @@ public class PacienteController {
     private final ListarPacientesUseCase listarPacientesUseCase;
     private final BuscarPacienteUseCase buscarPacienteUseCase;
     private final BuscarPacientesPorNomeUseCase buscarPacientesPorNomeUseCase;
+    private final AtualizarPacienteUseCase atualizarPacienteUseCase;
+    private final RemoverPacienteUseCase removerPacienteUseCase;
 
     public PacienteController(
             CadastrarPacienteUseCase cadastrarPacienteUseCase,
             ListarPacientesUseCase listarPacientesUseCase,
             BuscarPacienteUseCase buscarPacienteUseCase,
-            BuscarPacientesPorNomeUseCase buscarPacientesPorNomeUseCase) {
+            BuscarPacientesPorNomeUseCase buscarPacientesPorNomeUseCase,
+            AtualizarPacienteUseCase atualizarPacienteUseCase,
+            RemoverPacienteUseCase removerPacienteUseCase) {
         this.cadastrarPacienteUseCase = cadastrarPacienteUseCase;
         this.listarPacientesUseCase = listarPacientesUseCase;
         this.buscarPacienteUseCase = buscarPacienteUseCase;
         this.buscarPacientesPorNomeUseCase = buscarPacientesPorNomeUseCase;
+        this.atualizarPacienteUseCase = atualizarPacienteUseCase;
+        this.removerPacienteUseCase = removerPacienteUseCase;
     }
+
     @PostMapping
     public ResponseEntity<PacienteEntity> cadastrar(@RequestBody CadastrarPacienteRequest request) {
 
@@ -41,7 +44,6 @@ public class PacienteController {
         PacienteEntity pacienteSalvo = cadastrarPacienteUseCase.executar(
                 request.nome(),
                 request.cpf(),
-                request.email(),
                 dataNascimento,
                 request.telefone()
         );
@@ -68,5 +70,20 @@ public class PacienteController {
         return ResponseEntity.ok(pacientes);
     }
 
-    public record CadastrarPacienteRequest(String nome, String cpf, String email, String dataNascimento, String telefone) {}
+    @PutMapping("{id}")
+    public ResponseEntity<PacienteEntity> atualizar(@PathVariable UUID id, @RequestBody AtualizarPacienteRequest request) {
+        PacienteEntity pacienteAtualizado = atualizarPacienteUseCase.executar(
+                id, request.nome(), request.telefone()
+        );
+        return ResponseEntity.ok(pacienteAtualizado);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> remover(@PathVariable UUID id) {
+        removerPacienteUseCase.executar(id);
+        return ResponseEntity.noContent().build(); 
+    }
+
+    public record CadastrarPacienteRequest(String nome, String cpf, String dataNascimento, String telefone) {}
+    public record AtualizarPacienteRequest(String nome, String telefone) {}
 }

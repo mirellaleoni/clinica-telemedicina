@@ -14,17 +14,15 @@ class PacienteTest {
     void deveCreatePacienteComDadosValidos() {
         // Arrange
         CPF cpf = new CPF("12345678900");
-        Email email = new Email("paciente@example.com");
         String nome = "João Silva";
 
         // Act
-        Paciente paciente = new Paciente(nome, cpf, email);
+        Paciente paciente = new Paciente(nome, cpf);
 
         // Assert
         assertNotNull(paciente.getId(), "ID não deve ser nulo");
         assertEquals(nome, paciente.getNome(), "Nome deve ser igual ao fornecido");
         assertEquals(cpf, paciente.getCpf(), "CPF deve ser igual ao fornecido");
-        assertEquals(email, paciente.getEmail(), "Email deve ser igual ao fornecido");
     }
 
     @Test
@@ -32,13 +30,11 @@ class PacienteTest {
     void deveGerarUUIDUnicoParaCadaPaciente() {
         // Arrange
         CPF cpf1 = new CPF("12345678900");
-        Email email1 = new Email("paciente1@example.com");
         CPF cpf2 = new CPF("98765432100");
-        Email email2 = new Email("paciente2@example.com");
 
         // Act
-        Paciente paciente1 = new Paciente("João", cpf1, email1);
-        Paciente paciente2 = new Paciente("Maria", cpf2, email2);
+        Paciente paciente1 = new Paciente("João", cpf1);
+        Paciente paciente2 = new Paciente("Maria", cpf2);
 
         // Assert
         assertNotEquals(paciente1.getId(), paciente2.getId(), "IDs devem ser diferentes");
@@ -48,7 +44,7 @@ class PacienteTest {
     @DisplayName("Deve alterar nome do paciente com valor válido")
     void deveAlterarNomeComValorValido() {
         // Arrange
-        Paciente paciente = new Paciente("João", new CPF("12345678900"), new Email("joao@example.com"));
+        Paciente paciente = new Paciente("João", new CPF("12345678900"));
         String novoNome = "João Silva";
 
         // Act
@@ -59,26 +55,11 @@ class PacienteTest {
     }
 
     @Test
-    @DisplayName("Deve alterar email do paciente com valor válido")
-    void deveAlterarEmailComValorValido() {
-        // Arrange
-        Paciente paciente = new Paciente("João", new CPF("12345678900"), new Email("joao@example.com"));
-        Email novoEmail = new Email("joao.silva@example.com");
-
-        // Act
-        paciente.alterarEmail(novoEmail);
-
-        // Assert
-        assertEquals(novoEmail, paciente.getEmail(), "Email deve ser alterado");
-    }
-
-    @Test
     @DisplayName("Deve comparar pacientes pela identidade (UUID)")
     void deveCompararPacientePelaIdentidade() {
         // Arrange
         CPF cpf = new CPF("12345678900");
-        Email email = new Email("paciente@example.com");
-        Paciente paciente1 = new Paciente("João", cpf, email);
+        Paciente paciente1 = new Paciente("João", cpf);
         Paciente paciente2 = paciente1;
 
         // Act & Assert
@@ -93,12 +74,11 @@ class PacienteTest {
     void deveLancarExcecaoQuandoNomeEhNulo() {
         // Arrange
         CPF cpf = new CPF("12345678900");
-        Email email = new Email("paciente@example.com");
 
         // Act & Assert
         IllegalArgumentException exception = assertThrows(
             IllegalArgumentException.class,
-            () -> new Paciente(null, cpf, email),
+            () -> new Paciente(null, cpf),
             "Deve lançar IllegalArgumentException"
         );
         assertEquals("O nome do paciente é obrigatório.", exception.getMessage());
@@ -109,12 +89,11 @@ class PacienteTest {
     void deveLancarExcecaoQuandoNomeEhVazio() {
         // Arrange
         CPF cpf = new CPF("12345678900");
-        Email email = new Email("paciente@example.com");
 
         // Act & Assert
         IllegalArgumentException exception = assertThrows(
             IllegalArgumentException.class,
-            () -> new Paciente("   ", cpf, email),
+            () -> new Paciente("   ", cpf),
             "Deve lançar IllegalArgumentException"
         );
         assertEquals("O nome do paciente é obrigatório.", exception.getMessage());
@@ -123,38 +102,20 @@ class PacienteTest {
     @Test
     @DisplayName("Deve lançar exceção quando CPF é nulo")
     void deveLancarExcecaoQuandoCpfEhNulo() {
-        // Arrange
-        Email email = new Email("paciente@example.com");
-
         // Act & Assert
         IllegalArgumentException exception = assertThrows(
             IllegalArgumentException.class,
-            () -> new Paciente("João", null, email),
+            () -> new Paciente("João", null),
             "Deve lançar IllegalArgumentException"
         );
         assertEquals("O CPF do paciente é obrigatório.", exception.getMessage());
     }
 
     @Test
-    @DisplayName("Deve lançar exceção quando Email é nulo")
-    void deveLancarExcecaoQuandoEmailEhNulo() {
-        // Arrange
-        CPF cpf = new CPF("12345678900");
-
-        // Act & Assert
-        IllegalArgumentException exception = assertThrows(
-            IllegalArgumentException.class,
-            () -> new Paciente("João", cpf, null),
-            "Deve lançar IllegalArgumentException"
-        );
-        assertEquals("O email do paciente é obrigatório.", exception.getMessage());
-    }
-
-    @Test
     @DisplayName("Deve lançar exceção ao alterar nome para nulo")
     void deveLancarExcecaoAoAlterarNomeParaNulo() {
         // Arrange
-        Paciente paciente = new Paciente("João", new CPF("12345678900"), new Email("joao@example.com"));
+        Paciente paciente = new Paciente("João", new CPF("12345678900"));
 
         // Act & Assert
         IllegalArgumentException exception = assertThrows(
@@ -169,7 +130,7 @@ class PacienteTest {
     @DisplayName("Deve lançar exceção ao alterar nome para vazio")
     void deveLancarExcecaoAoAlterarNomeParaVazio() {
         // Arrange
-        Paciente paciente = new Paciente("João", new CPF("12345678900"), new Email("joao@example.com"));
+        Paciente paciente = new Paciente("João", new CPF("12345678900"));
 
         // Act & Assert
         IllegalArgumentException exception = assertThrows(
@@ -181,26 +142,11 @@ class PacienteTest {
     }
 
     @Test
-    @DisplayName("Deve lançar exceção ao alterar email para nulo")
-    void deveLancarExcecaoAoAlterarEmailParaNulo() {
-        // Arrange
-        Paciente paciente = new Paciente("João", new CPF("12345678900"), new Email("joao@example.com"));
-
-        // Act & Assert
-        IllegalArgumentException exception = assertThrows(
-            IllegalArgumentException.class,
-            () -> paciente.alterarEmail(null),
-            "Deve lançar IllegalArgumentException"
-        );
-        assertEquals("O email não pode ser vazio.", exception.getMessage());
-    }
-
-    @Test
     @DisplayName("Não deve considerar pacientes diferentes como iguais")
     void naoDeveConsiderarPacientesDiferentesComoIguais() {
         // Arrange
-        Paciente paciente1 = new Paciente("João", new CPF("12345678900"), new Email("joao@example.com"));
-        Paciente paciente2 = new Paciente("João", new CPF("12345678900"), new Email("joao@example.com"));
+        Paciente paciente1 = new Paciente("João", new CPF("12345678900"));
+        Paciente paciente2 = new Paciente("João", new CPF("12345678900"));
 
         // Act & Assert
         assertNotEquals(paciente1, paciente2, "Pacientes com IDs diferentes não devem ser iguais");

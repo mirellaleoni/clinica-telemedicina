@@ -1,7 +1,6 @@
 package com.clinica.application;
 
 import com.clinica.domain.CPF;
-import com.clinica.domain.Email;
 import com.clinica.domain.Paciente;
 import com.clinica.infrastructure.PacienteEntity;
 import com.clinica.infrastructure.PacienteRepository;
@@ -19,12 +18,10 @@ public class CadastrarPacienteUseCase {
         this.repository = repository;
     }
 
-    public PacienteEntity executar(String nome, String cpfTexto, String emailTexto, LocalDate dataNascimento, String telefone) {
+    public PacienteEntity executar(String nome, String cpfTexto, LocalDate dataNascimento, String telefone) {
         
         CPF cpf = new CPF(cpfTexto);
-        Email email = new Email(emailTexto);
-
-        Paciente paciente = new Paciente(nome, cpf, email);
+        Paciente paciente = new Paciente(nome, cpf);
 
         PacienteEntity entity = new PacienteEntity(
                 paciente.getId(),
