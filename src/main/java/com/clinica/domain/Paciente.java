@@ -6,42 +6,29 @@ public class Paciente {
     private final UUID id;
     private String nome;
     private final CPF cpf;
-    private Email email;
 
-    public Paciente(String nome, CPF cpf, Email email) {
+    public Paciente(String nome, CPF cpf) {
         if( nome == null || nome.trim().isEmpty() ) {
             throw new IllegalArgumentException("O nome do paciente é obrigatório.");
         }
         if( cpf == null ) {
             throw new IllegalArgumentException("O CPF do paciente é obrigatório.");
         }
-        if ( email == null ) {
-            throw new IllegalArgumentException("O email do paciente é obrigatório.");
-        }
 
         this.id = UUID.randomUUID();
         this.nome = nome;
         this.cpf = cpf;
-        this.email = email;
     }
 
     public UUID getId() { return id; }
     public String getNome() { return nome; }
     public CPF getCpf() { return cpf; }
-    public Email getEmail() { return email; }
 
     public void alterarNome(String novoNome) {
         if( novoNome == null || novoNome.trim().isEmpty() ) {
             throw new IllegalArgumentException("O nome não pode ser vazio.");
         }
         this.nome = novoNome;
-    }
-
-    public void alterarEmail(Email novoEmail) {
-        if ( novoEmail == null ) {
-            throw new IllegalArgumentException("O email não pode ser vazio.");
-        }
-        this.email = novoEmail;
     }
 
     @Override

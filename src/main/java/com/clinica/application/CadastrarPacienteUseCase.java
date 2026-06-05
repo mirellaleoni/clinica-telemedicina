@@ -1,0 +1,37 @@
+package com.clinica.application;
+
+import com.clinica.domain.CPF;
+import com.clinica.domain.Paciente;
+import com.clinica.infrastructure.PacienteEntity;
+import com.clinica.infrastructure.PacienteRepository;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Service
+public class CadastrarPacienteUseCase {
+
+    private final PacienteRepository repository;
+
+    public CadastrarPacienteUseCase(PacienteRepository repository) {
+        this.repository = repository;
+    }
+
+    public PacienteEntity executar(String nome, String cpfTexto, LocalDate dataNascimento, String telefone) {
+        
+        CPF cpf = new CPF(cpfTexto);
+        Paciente paciente = new Paciente(nome, cpf);
+
+        PacienteEntity entity = new PacienteEntity(
+                paciente.getId(),
+                paciente.getNome(),
+                dataNascimento,
+                telefone,
+                paciente.getCpf().getNumero(),
+                LocalDateTime.now()
+        );
+
+        return repository.save(entity);
+    }
+}

@@ -11,7 +11,7 @@ Agendar consultas médicas presenciais ou online, gerenciar salas e links de vid
 | Nome | GitHub |
 |---|---|
 | Mirella Leoni | @mirellaleoni |
-| Nome Aluno 2 | @user2 |
+| Kauã Xavier | @Kaua032 |
 
 > Lembrete: todos os integrantes precisam fazer commits. A IA cruza o `project-meta.json` com o histórico do Git.
 
@@ -244,27 +244,27 @@ GET  /relatorios/financeiro  → relatório financeiro
 > O CRUD deve ser implementado em camadas: `presentation/` recebe HTTP, `application/` executa o caso de uso, `infrastructure/` acessa o banco e `domain/` mantém as regras.
 
 ### CRUD de Pacientes
-- [ ] Criar paciente
+- [x] Criar paciente
   - `POST /pacientes`
   - Use case: `CadastrarPacienteUseCase`
   - Repository: `PacienteRepository.save`
-- [ ] Listar pacientes
+- [x] Listar pacientes
   - `GET /pacientes`
   - Use case: `ListarPacientesUseCase`
   - Repository: `PacienteRepository.findAll`
-- [ ] Buscar paciente por ID
+- [x] Buscar paciente por ID
   - `GET /pacientes/{id}`
   - Use case: `BuscarPacienteUseCase`
   - Repository: `PacienteRepository.findById`
-- [ ] Buscar paciente por nome
+- [x] Buscar paciente por nome
   - `GET /pacientes/search?q=`
   - Use case: `BuscarPacientesPorNomeUseCase`
   - Repository: `PacienteRepository.findByNomeContainingIgnoreCase`
-- [ ] Atualizar paciente
+- [x] Atualizar paciente
   - `PUT /pacientes/{id}`
   - Use case: `AtualizarPacienteUseCase`
   - Regras: usar métodos da entidade, como `alterarNome` e `alterarEmail`
-- [ ] Remover paciente
+- [x] Remover paciente
   - `DELETE /pacientes/{id}`
   - Use case: `RemoverPacienteUseCase`
   - Repository: `PacienteRepository.deleteById`
@@ -367,11 +367,11 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Entidade `Prontuario` + teste
 
 ### Fase 3 — Application
-- [ ] `CadastrarPacienteUseCase`
-- [ ] `ListarPacientesUseCase`
-- [ ] `BuscarPacienteUseCase`
-- [ ] `AtualizarPacienteUseCase`
-- [ ] `RemoverPacienteUseCase`
+- [x] `CadastrarPacienteUseCase`
+- [x] `ListarPacientesUseCase`
+- [x] `BuscarPacienteUseCase`
+- [x] `AtualizarPacienteUseCase`
+- [x] `RemoverPacienteUseCase`
 - [ ] `CadastrarMedicoUseCase`
 - [ ] `ListarMedicosUseCase`
 - [ ] `BuscarMedicoUseCase`
@@ -389,7 +389,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] `RegistrarPagamentoUseCase`
 
 ### Fase 4 — Presentation (bônus +10pts)
-- [ ] `PacienteController`
+- [x] `PacienteController`
 - [ ] `MedicoController`
 - [ ] `AgendamentoController`
 - [ ] `ConsultaController`
@@ -401,7 +401,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 
 ### Fase 5 — Infrastructure
 - [x] Migrations Flyway completas
-- [ ] `PacienteRepository`
+- [x] `PacienteRepository`
 - [ ] `MedicoRepository`
 - [ ] `AgendamentoRepository`
 - [ ] `ConsultaRepository`
