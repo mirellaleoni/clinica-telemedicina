@@ -252,11 +252,11 @@ GET  /relatorios/financeiro  → relatório financeiro
   - `GET /pacientes`
   - Use case: `ListarPacientesUseCase`
   - Repository: `PacienteRepository.findAll`
-- [ ] Buscar paciente por ID
+- [x] Buscar paciente por ID
   - `GET /pacientes/{id}`
   - Use case: `BuscarPacienteUseCase`
   - Repository: `PacienteRepository.findById`
-- [ ] Buscar paciente por nome
+- [x] Buscar paciente por nome
   - `GET /pacientes/search?q=`
   - Use case: `BuscarPacientesPorNomeUseCase`
   - Repository: `PacienteRepository.findByNomeContainingIgnoreCase`
@@ -369,7 +369,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 ### Fase 3 — Application
 - [x] `CadastrarPacienteUseCase`
 - [x] `ListarPacientesUseCase`
-- [ ] `BuscarPacienteUseCase`
+- [x] `BuscarPacienteUseCase`
 - [ ] `AtualizarPacienteUseCase`
 - [ ] `RemoverPacienteUseCase`
 - [ ] `CadastrarMedicoUseCase`
