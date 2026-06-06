@@ -12,4 +12,6 @@ public interface AgendamentoRepository extends JpaRepository<AgendamentoEntity, 
     List<AgendamentoEntity> findByPacienteId(UUID pacienteId);
 
     List<AgendamentoEntity> findByMedicoId(UUID medicoId);
+
+    List<AgendamentoEntity> findByStatus(String status);
 }
