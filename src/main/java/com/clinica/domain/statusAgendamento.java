@@ -1,9 +1,7 @@
 package com.clinica.domain;
 
-public enum statusAgendamento {
-
+public enum StatusAgendamento {
     CRIADO,
     CANCELADO,
     CONCLUIDO
-
 }

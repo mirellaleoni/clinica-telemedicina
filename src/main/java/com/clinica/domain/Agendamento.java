@@ -3,34 +3,14 @@ package com.clinica.domain;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@Entity
-@Table(name = "agenda")
-@Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Agendamento {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
-    private UUID pacienteId;
-    private UUID medicoId;
-    private LocalDateTime dataHora;
-    private String tipo;
-
-    @Enumerated(EnumType.STRING)
-    private statusAgendamento status;
+    private final UUID id;
+    private final UUID pacienteId;
+    private final UUID medicoId;
+    private final LocalDateTime dataHora;
+    private final String tipo;
+    private StatusAgendamento status;
 
     public Agendamento(UUID pacienteId, UUID medicoId, LocalDateTime dataHora, String tipo) {
         if (pacienteId == null) {
@@ -46,11 +26,43 @@ public class Agendamento {
             throw new IllegalArgumentException("O tipo do agendamento é obrigatório.");
         }
 
+        this.id = UUID.randomUUID();
         this.pacienteId = pacienteId;
         this.medicoId = medicoId;
         this.dataHora = dataHora;
         this.tipo = tipo.trim();
-        this.status = statusAgendamento.CRIADO;
+        this.status = StatusAgendamento.CRIADO;
     }
 
+    public void cancelar() {
+        if (this.status == StatusAgendamento.CANCELADO) {
+            throw new IllegalStateException("Este agendamento já foi cancelado.");
+        }
+        this.status = StatusAgendamento.CANCELADO;
+    }
+
+    public void concluir() {
+        if (this.status == StatusAgendamento.CONCLUIDO) {
+            throw new IllegalStateException("Este agendamento já foi concluído.");
+        }
+        this.status = StatusAgendamento.CONCLUIDO;
+    }
+
+    public UUID getId() { return id; }
+    public UUID getPacienteId() { return pacienteId; }
+    public UUID getMedicoId() { return medicoId; }
+    public LocalDateTime getDataHora() { return dataHora; }
+    public String getTipo() { return tipo; }
+    public StatusAgendamento getStatus() { return status; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Agendamento that = (Agendamento) o;
+        return id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() { return id.hashCode(); }
 }
