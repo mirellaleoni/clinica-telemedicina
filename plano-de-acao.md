@@ -365,6 +365,9 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Aggregate Root `Agendamento` + teste
 - [x] Aggregate Root `Consulta` + teste
 - [x] Entidade `Prontuario` + teste
+   Pagamento.java — Aggregate Root + teste
+   Fatura.java — Entidade + teste
+   Receita.java
 
 ### Fase 3 — Application
 - [x] `CadastrarPacienteUseCase`
@@ -404,11 +407,11 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `PacienteRepository`
 - [x] `MedicoRepository`
 - [ ] `AgendamentoRepository`
-- [ ] `ConsultaRepository`
-- [ ] `ProntuarioRepository`
-- [ ] `ReceitaRepository`
-- [ ] `PagamentoRepository`
-- [ ] `FaturaRepository`
+- [x] `ConsultaRepository`
+- [x] `ProntuarioRepository`
+- [x] `ReceitaRepository`
+- [x] `PagamentoRepository`
+- [x] `FaturaRepository`
 - [ ] Configuração JWT
 
 ### Fase 6 — Finalização
