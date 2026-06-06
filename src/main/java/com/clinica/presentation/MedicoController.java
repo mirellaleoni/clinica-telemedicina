@@ -34,6 +34,7 @@ public class MedicoController {
 
     @PostMapping
     public ResponseEntity<Medico> cadastrar(@RequestBody CadastrarMedicoRequest request) {
+        // Atualizado para passar o request.usuarioId() como 8º parâmetro
         Medico medico = cadastrarMedicoUseCase.executar(
                 request.nome(),
                 request.cpf(),
@@ -41,7 +42,8 @@ public class MedicoController {
                 request.crmUf(),
                 request.email(),
                 request.especialidade(),
-                request.ativo()
+                request.ativo(),
+                request.usuarioId() // <--- Adicionado aqui
         );
         return ResponseEntity.status(HttpStatus.CREATED).body(medico);
     }
@@ -69,6 +71,17 @@ public class MedicoController {
         return ResponseEntity.noContent().build();
     }
 
-    public record CadastrarMedicoRequest(String nome, String cpf, String crmNumero, String crmUf, String email, String especialidade, Boolean ativo) {}
+    // 1. Adicionado 'UUID usuarioId' no corpo do Record para o JSON aceitar esse campo
+    public record CadastrarMedicoRequest(
+            String nome, 
+            String cpf, 
+            String crmNumero, 
+            String crmUf, 
+            String email, 
+            String especialidade, 
+            Boolean ativo,
+            UUID usuarioId // <--- Adicionado aqui
+    ) {}
+    
     public record AtualizarMedicoRequest(String nome, String email) {}
 }

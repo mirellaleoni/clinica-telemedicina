@@ -7,6 +7,7 @@ import com.clinica.domain.Email;
 import com.clinica.infrastructure.MedicoEntity;
 import com.clinica.infrastructure.MedicoRepository;
 import org.springframework.stereotype.Service;
+import java.util.UUID; // Adicionado para o tipo UUID do usuarioId
 
 @Service
 public class CadastrarMedicoUseCase {
@@ -17,7 +18,8 @@ public class CadastrarMedicoUseCase {
         this.repository = repository;
     }
 
-    public Medico executar(String nome, String cpf, String crmNumero, String crmUf, String email, String especialidade, Boolean ativo) {
+    // Adicionado UUID usuarioId como parâmetro do método executar
+    public Medico executar(String nome, String cpf, String crmNumero, String crmUf, String email, String especialidade, Boolean ativo, UUID usuarioId) {
         Medico medico = new Medico(
             nome,
             new CPF(cpf),
@@ -25,6 +27,7 @@ public class CadastrarMedicoUseCase {
             new Email(email)
         );
 
+        // Agora passando os 8 parâmetros exigidos pelo novo construtor da MedicoEntity
         MedicoEntity entity = new MedicoEntity(
             medico.getId(),
             medico.getNome(),
@@ -32,7 +35,8 @@ public class CadastrarMedicoUseCase {
             medico.getCrm().getValorCompleto(),
             medico.getEmail().getEndereco(),
             especialidade,
-            ativo
+            ativo,
+            usuarioId // <--- Passando o ID do usuário mapeado aqui
         );
 
         repository.save(entity);

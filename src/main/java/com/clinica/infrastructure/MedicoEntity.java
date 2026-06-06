@@ -29,9 +29,14 @@ public class MedicoEntity {
 
     private Boolean ativo;
 
+    // 1. ADICIONE A COLUNA MAPEADA AQUI:
+    @Column(name = "usuario_id")
+    private UUID usuarioId; // ou String, dependendo do tipo no seu banco
+
     protected MedicoEntity() {}
 
-    public MedicoEntity(UUID id, String nome, String cpf, String crm, String email, String especialidade, Boolean ativo) {
+    // 2. ATUALIZE O CONSTRUTOR SE COMPILADOR EXIGIR (Lembre-se que mudamos o UseCase para não usar 'new', então isso não vai quebrar lá)
+    public MedicoEntity(UUID id, String nome, String cpf, String crm, String email, String especialidade, Boolean ativo, UUID usuarioId) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -39,8 +44,10 @@ public class MedicoEntity {
         this.email = email;
         this.especialidade = especialidade;
         this.ativo = ativo;
+        this.usuarioId = usuarioId;
     }
 
+    // Getters e Setters habituais
     public UUID getId() { return id; }
     public String getNome() { return nome; }
     public String getCpf() { return cpf; }
@@ -48,9 +55,13 @@ public class MedicoEntity {
     public String getEmail() { return email; }
     public String getEspecialidade() { return especialidade; }
     public Boolean getAtivo() { return ativo; }
+    
+    // 3. ADICIONE O GETTER/SETTER PARA O USUARIO ID:
+    public UUID getUsuarioId() { return usuarioId; }
 
     public void setNome(String nome) { this.nome = nome; }
     public void setEmail(String email) { this.email = email; }
     public void setEspecialidade(String especialidade) { this.especialidade = especialidade; }
     public void setAtivo(Boolean ativo) { this.ativo = ativo; }
+    public void setUsuarioId(UUID usuarioId) { this.usuarioId = usuarioId; }
 }
