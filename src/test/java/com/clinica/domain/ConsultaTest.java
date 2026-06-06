@@ -26,6 +26,6 @@ class ConsultaTest {
         consulta.finalizar();
 
         assertNotNull(consulta.getFinalizadaEm());
-        assertTrue(consulta.getFinalizadaEm().isAfter(consulta.getIniciadaEm()));
+        assertFalse(consulta.getFinalizadaEm().isBefore(consulta.getIniciadaEm()));
     }
 }

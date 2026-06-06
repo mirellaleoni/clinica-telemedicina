@@ -365,9 +365,9 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Aggregate Root `Agendamento` + teste
 - [x] Aggregate Root `Consulta` + teste
 - [x] Entidade `Prontuario` + teste
-- [ ] Pagamento.java — Aggregate Root + teste
-- [ ] Fatura.java — Entidade + teste
-- [x] Receita.java
+- [x] Entidade `Receita` + teste
+- [ ] Aggregate Root `Pagamento` + teste
+- [ ] Entidade `Fatura` + teste
 
 ### Fase 3 — Application
 - [x] `CadastrarPacienteUseCase`
@@ -380,16 +380,27 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `BuscarMedicoUseCase`
 - [x] `AtualizarMedicoUseCase`
 - [x] `DesativarMedicoUseCase`
+
 - [ ] `CriarAgendamentoUseCase`
 - [ ] `ListarAgendamentosUseCase`
 - [ ] `BuscarAgendamentoUseCase`
 - [ ] `RemarcarAgendamentoUseCase`
 - [ ] `CancelarAgendamentoUseCase`
+
 - [ ] `IniciarConsultaUseCase`
+- [ ] `BuscarConsultaUseCase`
 - [ ] `FinalizarConsultaUseCase`
+
 - [ ] `CriarProntuarioUseCase`
+- [ ] `BuscarProntuarioUseCase`
+
 - [x] `EmitirReceitaUseCase`
+- [x] `BuscarReceitaUseCase`
+
 - [ ] `RegistrarPagamentoUseCase`
+- [ ] `BuscarPagamentoUseCase`
+
+- [ ] `ListarFaturasDoPacienteUseCase`
 
 ### Fase 4 — Presentation (bônus +10pts)
 - [x] `PacienteController`
@@ -399,22 +410,23 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] `ProntuarioController`
 - [x] `ReceitaController`
 - [ ] `PagamentoController`
+- [ ] `FaturaController`
 - [ ] `RelatorioFinanceiroController`
 - [ ] `AuthController`
 
 ### Fase 5 — Infrastructure
 - [x] Migrations Flyway completas
-- [x] `PacienteRepository`
-- [x] `MedicoRepository`
-- [ ] `AgendamentoRepository`
-- [x] `ConsultaRepository`
-- [x] `ProntuarioRepository`
-- [x] `ReceitaRepository`
-- [x] `PagamentoRepository`
-- [x] `FaturaRepository`
+- [x] `PacienteEntity` + `PacienteRepository`
+- [x] `MedicoEntity` + `MedicoRepository`
+- [x] `AgendamentoEntity` + `AgendamentoRepository`
+- [x] `ConsultaEntity` + `ConsultaRepository`
+- [x] `ProntuarioEntity` + `ProntuarioRepository`
+- [x] `ReceitaEntity` + `ReceitaRepository`
+- [x] `PagamentoEntity` + `PagamentoRepository`
+- [x] `FaturaEntity` + `FaturaRepository`
 - [ ] Configuração JWT
 
 ### Fase 6 — Finalização
 - [x] CI/CD passando no GitHub (build verde)
-- [ ] Commits equilibrados entre os tres integrantes
+- [ ] Commits equilibrados entre os três integrantes
 - [ ] README atualizado
