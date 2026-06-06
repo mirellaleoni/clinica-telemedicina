@@ -29,9 +29,9 @@ public class MedicoEntity {
 
     private Boolean ativo;
 
-    // 1. ADICIONE A COLUNA MAPEADA AQUI:
-    @Column(name = "usuario_id")
-    private UUID usuarioId; // ou String, dependendo do tipo no seu banco
+
+    @Column(name = "usuario_id", columnDefinition = "uuid")
+    private UUID usuarioId;
 
     protected MedicoEntity() {}
 
