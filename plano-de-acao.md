@@ -316,10 +316,10 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Finalizar consulta
   - `PUT /consultas/{id}/finalizar`
   - Use case: `FinalizarConsultaUseCase`
-- [ ] Criar prontuário
+- [x] Criar prontuário
   - `POST /prontuarios`
   - Use case: `CriarProntuarioUseCase`
-- [ ] Buscar prontuário
+- [x] Buscar prontuário
   - `GET /prontuarios/{id}`
   - Use case: `BuscarProntuarioUseCase`
 - [x] Emitir receita
@@ -366,8 +366,6 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Aggregate Root `Consulta` + teste
 - [x] Entidade `Prontuario` + teste
 - [x] Entidade `Receita` + teste
-- [ ] Aggregate Root `Pagamento` + teste
-- [ ] Entidade `Fatura` + teste
 
 ### Fase 3 — Application
 - [x] `CadastrarPacienteUseCase`
@@ -392,15 +390,10 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `FinalizarConsultaUseCase`
 
 - [x] `CriarProntuarioUseCase`
-- [ ] `BuscarProntuarioUseCase`
+- [x] `BuscarProntuarioUseCase`
 
 - [x] `EmitirReceitaUseCase`
 - [x] `BuscarReceitaUseCase`
-
-- [ ] `RegistrarPagamentoUseCase`
-- [ ] `BuscarPagamentoUseCase`
-
-- [ ] `ListarFaturasDoPacienteUseCase`
 
 ### Fase 4 — Presentation (bônus +10pts)
 - [x] `PacienteController`
@@ -409,10 +402,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `AgendamentoController`
 - [x] `ProntuarioController`
 - [x] `ReceitaController`
-- [ ] `PagamentoController`
-- [ ] `FaturaController`
-- [ ] `RelatorioFinanceiroController`
-- [ ] `AuthController`
+- [x] `AuthController`
 
 ### Fase 5 — Infrastructure
 - [x] Migrations Flyway completas
@@ -424,7 +414,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `ReceitaEntity` + `ReceitaRepository`
 - [x] `PagamentoEntity` + `PagamentoRepository`
 - [x] `FaturaEntity` + `FaturaRepository`
-- [ ] Configuração JWT
+- [x] Configuração JWT
 
 ### Fase 6 — Finalização
 - [x] CI/CD passando no GitHub (build verde)
