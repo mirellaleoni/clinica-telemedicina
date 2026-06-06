@@ -6,40 +6,37 @@ import java.util.UUID;
 public class Prontuario {
 
     private final UUID id;
-    private final UUID pacienteId;
-    private final UUID medicoId;
-    private String descricao;
+    private final UUID consultaId;
+    private String observacoes;
+    private String prescricao;
     private final LocalDateTime criadoEm;
 
-    public Prontuario(UUID pacienteId, UUID medicoId, String descricao) {
-        if (pacienteId == null) {
-            throw new IllegalArgumentException("Paciente ID não pode ser nulo");
+    public Prontuario(UUID consultaId, String observacoes, String prescricao) {
+        if (consultaId == null) {
+            throw new IllegalArgumentException("O ID da consulta é obrigatório.");
         }
-        if (medicoId == null) {
-            throw new IllegalArgumentException("Médico ID não pode ser nulo");
-        }
-        if (descricao == null || descricao.trim().isEmpty()) {
-            throw new IllegalArgumentException("A descrição do prontuário é obrigatória.");
+        if (observacoes == null || observacoes.trim().isEmpty()) {
+            throw new IllegalArgumentException("As observações do prontuário são obrigatórias.");
         }
 
         this.id = UUID.randomUUID();
-        this.pacienteId = pacienteId;
-        this.medicoId = medicoId;
-        this.descricao = descricao.trim();
+        this.consultaId = consultaId;
+        this.observacoes = observacoes.trim();
+        this.prescricao = prescricao != null ? prescricao.trim() : null;
         this.criadoEm = LocalDateTime.now();
     }
 
     public UUID getId() { return id; }
-    public UUID getPacienteId() { return pacienteId; }
-    public UUID getMedicoId() { return medicoId; }
-    public String getDescricao() { return descricao; }
+    public UUID getConsultaId() { return consultaId; }
+    public String getObservacoes() { return observacoes; }
+    public String getPrescricao() { return prescricao; }
     public LocalDateTime getCriadoEm() { return criadoEm; }
 
-    public void adicionarEvolucao(String novaDescricao) {
-        if (novaDescricao == null || novaDescricao.trim().isEmpty()) {
-            throw new IllegalArgumentException("A nova descrição não pode ser vazia.");
+    public void adicionarEvolucao(String novasObservacoes) {
+        if (novasObservacoes == null || novasObservacoes.trim().isEmpty()) {
+            throw new IllegalArgumentException("As novas observações não podem ser vazias.");
         }
-        this.descricao = this.descricao + "\n---\n" + novaDescricao.trim();
+        this.observacoes = this.observacoes + "\n---\n" + novasObservacoes.trim();
     }
 
     @Override
@@ -54,5 +51,4 @@ public class Prontuario {
     public int hashCode() {
         return id.hashCode();
     }
-
 }

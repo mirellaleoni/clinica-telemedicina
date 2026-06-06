@@ -1,5 +1,6 @@
 package com.clinica.domain;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,40 +8,47 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProntuarioTest {
 
     @Test
+    @DisplayName("Deve criar prontuário com dados válidos")
     void deveCriarProntuarioComSucesso() {
-        UUID pacienteId = UUID.randomUUID();
-        UUID medicoId = UUID.randomUUID();
-        String descricao = "Paciente relata dores de cabeça e febre há 3 dias.";
+        UUID consultaId = UUID.randomUUID();
+        String observacoes = "Paciente relata dores de cabeça constantes.";
+        String prescricao = "Paracetamol 500mg de 6 em 6 horas se houver dor.";
 
-        Prontuario prontuario = new Prontuario(pacienteId, medicoId, descricao);
+        Prontuario prontuario = new Prontuario(consultaId, observacoes, prescricao);
 
         assertNotNull(prontuario.getId());
-        assertEquals(pacienteId, prontuario.getPacienteId());
-        assertEquals(medicoId, prontuario.getMedicoId());
-        assertEquals(descricao, prontuario.getDescricao());
+        assertEquals(consultaId, prontuario.getConsultaId());
+        assertEquals(observacoes, prontuario.getObservacoes());
+        assertEquals(prescricao, prontuario.getPrescricao());
         assertNotNull(prontuario.getCriadoEm());
     }
 
     @Test
-    void naoDeveCriarProntuarioSemDescricao() {
-        UUID pacienteId = UUID.randomUUID();
-        UUID medicoId = UUID.randomUUID();
-
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Prontuario(pacienteId, medicoId, "   ");
+    @DisplayName("Não deve criar prontuário sem ID da consulta")
+    void naoDeveCriarSemConsultaId() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Prontuario(null, "Observações válidas", "Prescrição válida");
         });
-
-        assertEquals("A descrição do prontuário é obrigatória.", exception.getMessage());
     }
-    
+
     @Test
-    void naoDeveCriarProntuarioSemIds() {
+    @DisplayName("Não deve criar prontuário com observações vazias")
+    void naoDeveCriarComObservacoesVazias() {
+        UUID consultaId = UUID.randomUUID();
         assertThrows(IllegalArgumentException.class, () -> {
-            new Prontuario(null, UUID.randomUUID(), "Descricao valida");
+            new Prontuario(consultaId, "   ", "Prescrição válida");
         });
-        
-        assertThrows(IllegalArgumentException.class, () -> {
-            new Prontuario(UUID.randomUUID(), null, "Descricao valida");
-        });
+    }
+
+    @Test
+    @DisplayName("Deve permitir adicionar evolução de histórico com sucesso")
+    void deveAdicionarEvolucaoComSucesso() {
+        UUID consultaId = UUID.randomUUID();
+        Prontuario prontuario = new Prontuario(consultaId, "Primeira consulta: Sintomas leves.", "Repouso.");
+
+        prontuario.adicionarEvolucao("Retorno: Paciente totalmente recuperado.");
+
+        assertTrue(prontuario.getObservacoes().contains("Primeira consulta: Sintomas leves."));
+        assertTrue(prontuario.getObservacoes().contains("Retorno: Paciente totalmente recuperado."));
     }
 }

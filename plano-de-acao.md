@@ -391,7 +391,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `BuscarConsultaUseCase`
 - [x] `FinalizarConsultaUseCase`
 
-- [ ] `CriarProntuarioUseCase`
+- [x] `CriarProntuarioUseCase`
 - [ ] `BuscarProntuarioUseCase`
 
 - [x] `EmitirReceitaUseCase`
