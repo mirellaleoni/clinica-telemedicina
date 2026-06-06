@@ -30,8 +30,9 @@ public class MedicoEntity {
     private Boolean ativo;
 
 
-    @Column(name = "usuario_id", columnDefinition = "uuid")
-    private UUID usuarioId;
+  @Column(name = "usuario_id")
+  @org.hibernate.annotations.JdbcTypeCode(java.sql.Types.VARCHAR) // ou alternative nativa dependendo do seu dialeto
+  private UUID usuarioId;
 
     protected MedicoEntity() {}
 
