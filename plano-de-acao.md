@@ -322,10 +322,10 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] Buscar prontuário
   - `GET /prontuarios/{id}`
   - Use case: `BuscarProntuarioUseCase`
-- [ ] Emitir receita
+- [x] Emitir receita
   - `POST /receitas`
   - Use case: `EmitirReceitaUseCase`
-- [ ] Buscar receita
+- [x] Buscar receita
   - `GET /receitas/{id}`
   - Use case: `BuscarReceitaUseCase`
 
@@ -365,9 +365,9 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Aggregate Root `Agendamento` + teste
 - [x] Aggregate Root `Consulta` + teste
 - [x] Entidade `Prontuario` + teste
-   Pagamento.java — Aggregate Root + teste
-   Fatura.java — Entidade + teste
-   Receita.java
+- [ ] Pagamento.java — Aggregate Root + teste
+- [ ] Fatura.java — Entidade + teste
+- [x] Receita.java
 
 ### Fase 3 — Application
 - [x] `CadastrarPacienteUseCase`
@@ -388,7 +388,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] `IniciarConsultaUseCase`
 - [ ] `FinalizarConsultaUseCase`
 - [ ] `CriarProntuarioUseCase`
-- [ ] `EmitirReceitaUseCase`
+- [x] `EmitirReceitaUseCase`
 - [ ] `RegistrarPagamentoUseCase`
 
 ### Fase 4 — Presentation (bônus +10pts)
@@ -397,7 +397,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] `AgendamentoController`
 - [ ] `ConsultaController`
 - [ ] `ProntuarioController`
-- [ ] `ReceitaController`
+- [x] `ReceitaController`
 - [ ] `PagamentoController`
 - [ ] `RelatorioFinanceiroController`
 - [ ] `AuthController`
