@@ -20,27 +20,23 @@ public class AtualizarMedicoUseCase {
         if (id == null) {
             throw new IllegalArgumentException("ID do médico não pode ser nulo.");
         }
+        
+        // 1. Busca o médico existente no banco
         MedicoEntity entity = repository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Médico não encontrado."));
 
+        // 2. Atualiza o nome se foi enviado
         if (novoNome != null && !novoNome.trim().isEmpty()) {
             entity.setNome(novoNome);
         }
 
+        // 3. Valida e atualiza o e-mail se foi enviado
         if (novoEmail != null && !novoEmail.trim().isEmpty()) {
-            new Email(novoEmail); // valida o formato pelo domain
+            new Email(novoEmail); // Valida o formato pelo domain
             entity.setEmail(novoEmail);
         }
 
-                MedicoEntity entityAtualizada = new MedicoEntity(
-                entity.getId(),
-                entity.getNome(),
-                entity.getCpf(),
-                entity.getCrm(),
-                novoEmail != null ? novoEmail : entity.getEmail()
-        );
-
-        repository.save(entityAtualizada);
+        // 4. Salva a própria entidade modificada (O Spring faz o UPDATE automaticamente)
+        repository.save(entity);
     }
 }
-
