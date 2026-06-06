@@ -372,11 +372,11 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `BuscarPacienteUseCase`
 - [x] `AtualizarPacienteUseCase`
 - [x] `RemoverPacienteUseCase`
-- [ ] `CadastrarMedicoUseCase`
-- [ ] `ListarMedicosUseCase`
-- [ ] `BuscarMedicoUseCase`
-- [ ] `AtualizarMedicoUseCase`
-- [ ] `DesativarMedicoUseCase`
+- [x] `CadastrarMedicoUseCase`
+- [x] `ListarMedicosUseCase`
+- [x] `BuscarMedicoUseCase`
+- [x] `AtualizarMedicoUseCase`
+- [x] `DesativarMedicoUseCase`
 - [ ] `CriarAgendamentoUseCase`
 - [ ] `ListarAgendamentosUseCase`
 - [ ] `BuscarAgendamentoUseCase`
@@ -390,7 +390,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 
 ### Fase 4 — Presentation (bônus +10pts)
 - [x] `PacienteController`
-- [ ] `MedicoController`
+- [x] `MedicoController`
 - [ ] `AgendamentoController`
 - [ ] `ConsultaController`
 - [ ] `ProntuarioController`
