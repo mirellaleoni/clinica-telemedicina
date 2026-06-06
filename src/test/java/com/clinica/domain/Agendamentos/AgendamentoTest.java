@@ -3,6 +3,9 @@ package com.clinica.domain.Agendamentos;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.clinica.domain.Agendamento;
+import com.clinica.domain.statusAgendamento;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 

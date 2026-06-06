@@ -1,4 +1,4 @@
-package com.clinica.domain.Agendamentos;
+package com.clinica.domain;
 
 public enum statusAgendamento {
 

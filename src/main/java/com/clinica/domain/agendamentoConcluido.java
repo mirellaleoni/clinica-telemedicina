@@ -1,4 +1,4 @@
-package com.clinica.domain.Agendamentos;
+package com.clinica.domain;
 
 import java.time.LocalDateTime;
 
@@ -13,12 +13,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "agendamento_criado")
+@Table(name = "agendamento_concluido")
 @Getter
 @NoArgsConstructor
 
-public class agendamentoCriado {
-
+public class agendamentoConcluido {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,11 +27,17 @@ public class agendamentoCriado {
     @JoinColumn(name = "agendamento_id")
     private Agendamento agendamento;
 
-    private LocalDateTime dataCriacao;
+    private Long usuarioConclusaoId;
+    private LocalDateTime dataConclusao;
 
-    public agendamentoCriado(Agendamento agendamento) {
+    public agendamentoConcluido(Agendamento agendamento, Long usuarioConclusaoId) {
         this.agendamento = agendamento;
-        this.dataCriacao = LocalDateTime.now();
+        this.usuarioConclusaoId = usuarioConclusaoId;
+        this.dataConclusao = LocalDateTime.now();
     }
-    
+
+    public Agendamento getAgendamento() {
+        return agendamento;
+    }
+
 }
