@@ -18,7 +18,7 @@ public class ConsultaEntity {
     @Column(name = "agendamento_id", nullable = false)
     private UUID agendamentoId;
 
-    @Column(name = "link_videochamada", nullable = false)
+    @Column(name = "link_video", nullable = false)
     private String linkVideochamada;
 
     @Column(name = "iniciada_em")
