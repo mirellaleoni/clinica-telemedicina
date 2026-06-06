@@ -55,7 +55,7 @@ jobs:
           SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/clinica_db
           SPRING_DATASOURCE_USERNAME: clinica
           SPRING_DATASOURCE_PASSWORD: clinica123
-          SPRING_JPA_HIBERNATE_DDL_AUTO: validate
+          SPRING_JPA_HIBERNATE_DDL_AUTO: update
 
       - name: Publica relatório de testes
         uses: actions/upload-artifact@v4
