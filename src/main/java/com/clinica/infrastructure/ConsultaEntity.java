@@ -43,6 +43,10 @@ public class ConsultaEntity {
     public LocalDateTime getIniciadaEm() { return iniciadaEm; }
     public LocalDateTime getFinalizadaEm() { return finalizadaEm; }
 
+    public void setIniciadaEm(LocalDateTime iniciadaEm) { 
+        this.iniciadaEm = iniciadaEm; 
+    }
+
     public void setFinalizadaEm(LocalDateTime finalizadaEm) {
         this.finalizadaEm = finalizadaEm;
     }

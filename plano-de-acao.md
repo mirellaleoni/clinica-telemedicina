@@ -387,8 +387,8 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] `RemarcarAgendamentoUseCase`
 - [ ] `CancelarAgendamentoUseCase`
 
-- [ ] `IniciarConsultaUseCase`
-- [ ] `BuscarConsultaUseCase`
+- [x] `IniciarConsultaUseCase`
+- [x] `BuscarConsultaUseCase`
 - [ ] `FinalizarConsultaUseCase`
 
 - [ ] `CriarProntuarioUseCase`
