@@ -307,13 +307,13 @@ GET  /relatorios/financeiro  → relatório financeiro
   - Regra: alterar status para `CANCELADO`, não apagar histórico
 
 ### CRUD de Atendimento
-- [ ] Iniciar consulta
+- [x] Iniciar consulta
   - `POST /consultas/{id}/iniciar`
   - Use case: `IniciarConsultaUseCase`
-- [ ] Buscar consulta
+- [x] Buscar consulta
   - `GET /consultas/{id}`
   - Use case: `BuscarConsultaUseCase`
-- [ ] Finalizar consulta
+- [x] Finalizar consulta
   - `PUT /consultas/{id}/finalizar`
   - Use case: `FinalizarConsultaUseCase`
 - [ ] Criar prontuário
@@ -387,9 +387,9 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `RemarcarAgendamentoUseCase`
 - [x] `CancelarAgendamentoUseCase`
 
-- [ ] `IniciarConsultaUseCase`
-- [ ] `BuscarConsultaUseCase`
-- [ ] `FinalizarConsultaUseCase`
+- [x] `IniciarConsultaUseCase`
+- [x] `BuscarConsultaUseCase`
+- [x] `FinalizarConsultaUseCase`
 
 - [ ] `CriarProntuarioUseCase`
 - [ ] `BuscarProntuarioUseCase`
@@ -405,9 +405,9 @@ GET  /relatorios/financeiro  → relatório financeiro
 ### Fase 4 — Presentation (bônus +10pts)
 - [x] `PacienteController`
 - [x] `MedicoController`
+- [x] `ConsultaController`
 - [x] `AgendamentoController`
-- [ ] `ConsultaController`
-- [ ] `ProntuarioController`
+- [x] `ProntuarioController`
 - [x] `ReceitaController`
 - [ ] `PagamentoController`
 - [ ] `FaturaController`
