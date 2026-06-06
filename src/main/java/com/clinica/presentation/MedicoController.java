@@ -39,7 +39,9 @@ public class MedicoController {
                 request.cpf(),
                 request.crmNumero(),
                 request.crmUf(),
-                request.email()
+                request.email(),
+                request.especialidade(),
+                request.ativo()
         );
         return ResponseEntity.status(HttpStatus.CREATED).body(medico);
     }
@@ -67,6 +69,6 @@ public class MedicoController {
         return ResponseEntity.noContent().build();
     }
 
-    public record CadastrarMedicoRequest(String nome, String cpf, String crmNumero, String crmUf, String email) {}
+    public record CadastrarMedicoRequest(String nome, String cpf, String crmNumero, String crmUf, String email, String especialidade, Boolean ativo) {}
     public record AtualizarMedicoRequest(String nome, String email) {}
 }

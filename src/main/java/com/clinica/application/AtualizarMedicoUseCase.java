@@ -3,7 +3,6 @@ package com.clinica.application;
 import com.clinica.domain.Email;
 import com.clinica.infrastructure.MedicoEntity;
 import com.clinica.infrastructure.MedicoRepository;
-
 import org.springframework.stereotype.Service;
 import java.util.UUID;
 
@@ -20,6 +19,7 @@ public class AtualizarMedicoUseCase {
         if (id == null) {
             throw new IllegalArgumentException("ID do médico não pode ser nulo.");
         }
+
         MedicoEntity entity = repository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Médico não encontrado."));
 
@@ -28,19 +28,10 @@ public class AtualizarMedicoUseCase {
         }
 
         if (novoEmail != null && !novoEmail.trim().isEmpty()) {
-            new Email(novoEmail); // valida o formato pelo domain
+            new Email(novoEmail);
             entity.setEmail(novoEmail);
         }
 
-                MedicoEntity entityAtualizada = new MedicoEntity(
-                entity.getId(),
-                entity.getNome(),
-                entity.getCpf(),
-                entity.getCrm(),
-                novoEmail != null ? novoEmail : entity.getEmail()
-        );
-
-        repository.save(entityAtualizada);
+        repository.save(entity);
     }
 }
-

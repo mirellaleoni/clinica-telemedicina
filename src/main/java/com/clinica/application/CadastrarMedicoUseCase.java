@@ -17,7 +17,7 @@ public class CadastrarMedicoUseCase {
         this.repository = repository;
     }
 
-    public Medico executar(String nome, String cpf, String crmNumero, String crmUf, String email) {
+    public Medico executar(String nome, String cpf, String crmNumero, String crmUf, String email, String especialidade, Boolean ativo) {
         Medico medico = new Medico(
             nome,
             new CPF(cpf),
@@ -30,7 +30,9 @@ public class CadastrarMedicoUseCase {
             medico.getNome(),
             medico.getCpf().getNumero(),
             medico.getCrm().getValorCompleto(),
-            medico.getEmail().getEndereco()
+            medico.getEmail().getEndereco(),
+            especialidade,
+            ativo
         );
 
         repository.save(entity);
