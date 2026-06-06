@@ -418,7 +418,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Migrations Flyway completas
 - [x] `PacienteEntity` + `PacienteRepository`
 - [x] `MedicoEntity` + `MedicoRepository`
-- [ ] `AgendamentoEntity` + `AgendamentoRepository`
+- [x] `AgendamentoEntity` + `AgendamentoRepository`
 - [x] `ConsultaEntity` + `ConsultaRepository`
 - [x] `ProntuarioEntity` + `ProntuarioRepository`
 - [x] `ReceitaEntity` + `ReceitaRepository`
