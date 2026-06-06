@@ -316,10 +316,10 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Finalizar consulta
   - `PUT /consultas/{id}/finalizar`
   - Use case: `FinalizarConsultaUseCase`
-- [ ] Criar prontuário
+- [x] Criar prontuário
   - `POST /prontuarios`
   - Use case: `CriarProntuarioUseCase`
-- [ ] Buscar prontuário
+- [x] Buscar prontuário
   - `GET /prontuarios/{id}`
   - Use case: `BuscarProntuarioUseCase`
 - [x] Emitir receita
@@ -392,7 +392,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `FinalizarConsultaUseCase`
 
 - [x] `CriarProntuarioUseCase`
-- [ ] `BuscarProntuarioUseCase`
+- [x] `BuscarProntuarioUseCase`
 
 - [x] `EmitirReceitaUseCase`
 - [x] `BuscarReceitaUseCase`
@@ -407,7 +407,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] `MedicoController`
 - [ ] `AgendamentoController`
 - [x] `ConsultaController`
-- [ ] `ProntuarioController`
+- [x] `ProntuarioController`
 - [x] `ReceitaController`
 - [ ] `PagamentoController`
 - [ ] `FaturaController`
