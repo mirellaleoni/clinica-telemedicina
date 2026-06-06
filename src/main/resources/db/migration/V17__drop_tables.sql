@@ -1,0 +1,1 @@
+DROP TABLE agendamento_cancelado, agendamento_concluido, agendamento_criado, contas, convenios, pagamentos, disponibilidades;
