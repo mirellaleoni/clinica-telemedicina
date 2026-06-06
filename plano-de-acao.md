@@ -322,10 +322,10 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] Buscar prontuário
   - `GET /prontuarios/{id}`
   - Use case: `BuscarProntuarioUseCase`
-- [ ] Emitir receita
+- [x] Emitir receita
   - `POST /receitas`
   - Use case: `EmitirReceitaUseCase`
-- [ ] Buscar receita
+- [x] Buscar receita
   - `GET /receitas/{id}`
   - Use case: `BuscarReceitaUseCase`
 
@@ -365,7 +365,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [x] Aggregate Root `Agendamento` + teste
 - [x] Aggregate Root `Consulta` + teste
 - [x] Entidade `Prontuario` + teste
-- [ ] Entidade `Receita` + teste
+- [x] Entidade `Receita` + teste
 - [ ] Aggregate Root `Pagamento` + teste
 - [ ] Entidade `Fatura` + teste
 
@@ -394,8 +394,8 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] `CriarProntuarioUseCase`
 - [ ] `BuscarProntuarioUseCase`
 
-- [ ] `EmitirReceitaUseCase`
-- [ ] `BuscarReceitaUseCase`
+- [x] `EmitirReceitaUseCase`
+- [x] `BuscarReceitaUseCase`
 
 - [ ] `RegistrarPagamentoUseCase`
 - [ ] `BuscarPagamentoUseCase`
@@ -408,7 +408,7 @@ GET  /relatorios/financeiro  → relatório financeiro
 - [ ] `AgendamentoController`
 - [ ] `ConsultaController`
 - [ ] `ProntuarioController`
-- [ ] `ReceitaController`
+- [x] `ReceitaController`
 - [ ] `PagamentoController`
 - [ ] `FaturaController`
 - [ ] `RelatorioFinanceiroController`
