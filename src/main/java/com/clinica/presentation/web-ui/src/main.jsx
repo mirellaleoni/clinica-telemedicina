@@ -1,10 +1,39 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom/client";
+import UserProvider from "./Context/UserContext.jsx";
+import { GlobalStyled } from "./GlobalStyled.jsx";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import './index.css'
 import App from './App.jsx'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/medicos",
+    element: <App />,
+  },
+  {
+    path: "/pacientes",
+    element: <App />,
+  },
+  {
+    path: "/agendamentos",
+    element: <App />,
+  },
+  {
+    path: "/prontuarios",
+    element: <App />,
+  }
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <GlobalStyled />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
+  </React.StrictMode>
+);
