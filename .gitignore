@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Ignora as dependencias do front-end
+**/web-ui/node_modules/
+**/web-ui/dist/
