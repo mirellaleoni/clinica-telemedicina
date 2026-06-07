@@ -5,14 +5,19 @@ import { GlobalStyled } from "./GlobalStyled.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import './index.css'
 import App from './App.jsx'
+import Login from "./Pages/Login/Login.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Login />,
   },
   {
     path: "/medicos",
+    element: <App />,
+  },
+  {
+    path: "/consultas",
     element: <App />,
   },
   {
@@ -25,6 +30,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/prontuarios",
+    element: <App />,
+  },
+  {
+    path: "/receitas",
     element: <App />,
   }
 ]);
